@@ -28,7 +28,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var listMessages = [];
+  var listMessages = [
+    // 'John',
+    // 'Mary',
+    // 'Peter',
+    // 'Paul',
+    // 'James',
+    // 'John',
+    // 'Mary',
+    // 'Peter',
+    // 'Paul',
+    // 'John',
+    // 'Mary',
+    // 'Peter',
+    // 'Paul',
+    // 'James',
+    // 'John',
+    // 'Mary',
+    // 'Peter',
+    // 'Paul',
+  ];
 
   var lineEditController = TextEditingController();
   // String name = '';
@@ -43,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(height: 20),
           TextField(
             controller: lineEditController,
+            // keyboardType: TextInputType.phone,
             onSubmitted: (value) => setState(() {
               listMessages.add(value);
               lineEditController.clear();
@@ -50,7 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
             }),
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'Enter your message',
+              labelText: 'Enter Number 1',
+              labelStyle: TextStyle(fontSize: 28),
+              suffixIcon: Icon(Icons.send),
             ),
           ),
           Row(
@@ -61,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     setState(() {
                       listMessages.clear();
+                      lineEditController.clear();
                     });
                   }),
               TextButton(
@@ -73,7 +96,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
             ],
           ),
-          for (var name in listMessages) Text('Hello $name'),
+          // for (var name in listMessages) Text('Hello $name'),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                // for (var name in listMessages) Text('Hello $name'),
+                ...listMessages.map((e) => Text('Hello $e')),
+              ],
+            ),
+          )
         ],
       ),
     );
